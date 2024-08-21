@@ -51,7 +51,7 @@ function multiplicarciruela () {
     else {
         alert ("Gracias por su compra!, que tenga buen dia.")
     }
-    retunr (total);
+    return (total);
 }
 
 
