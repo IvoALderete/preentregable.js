@@ -4,7 +4,7 @@ const frutas = [
     { nombre: "ciruela", precio: 60 }
 ];
 
-let eleccion =  parseInt(prompt("Elija que fruta desea llevar: \n 1- manzana \n 2- banana \n 3- ciruela \n  4-salir"))
+let eleccion =  parseInt(prompt("Elija que fruta desea llevar: \n 1- manzana $40 \n 2- banana $80 \n 3- ciruela $60 \n  4-salir"))
 let confirmar = false;
 
 function multiplicarmanzana () {
