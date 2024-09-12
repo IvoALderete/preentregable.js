@@ -5,6 +5,13 @@
     font-family: "Arial, Helvetica, sans-serif";
 }
 
+:root {
+    --clr-main: #333; /* Ajusta el color según tu diseño */
+    --clr-gray: #f0f0f0;
+    --clr-red: #ff0000;
+    --clr-white: #fff;
+}
+
 /*Estilos Generales*/
 
 body {
@@ -217,65 +224,29 @@ h2 {
     align-items: center;
     background-color: var(--clr-gray);
     color: var(--clr-main);
-    padding: 5rem;
-    border-radius: 1rem;
+    padding: 1rem; /* Reduce el padding si es muy grande */
+    border-radius: 0.5rem; /* Ajusta según tu diseño */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añadir sombra para mejor visibilidad */
 }
 
 .carrito-producto-imagen {
-    width: 35rem;
-    border-radius: 1rem;
-}
-
-.carrito-productos small {
-    font-size: 60px;
-}
-
-.svg {
-    border: 0;
-    background-color: transparent;
-    color: var(--clr-red);
-}
-
-.carrito-acciones {
-    display: flex;
-    justify-content: space-between;
-}
-
-.carrito-acciones-vaciar {
-    border: 0;
-    background-color: var(--clr-gray);
-    padding: 1rem;
-    border-radius: 1rem;
-    color: var(--clr-main);
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.carrito-acciones-derecha {
-    display: flex;
+    width: 100px; /* Ajusta según la imagen */
+    border-radius: 0.5rem;
+    object-fit: cover; /* Para mantener proporción */
 }
 
 .carrito-accione-total {
-    display: flex;
-    background-color: var(--clr-gray);
     padding: 1rem;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    color: var(--clr-main);
-    text-transform: uppercase;
-    gap: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.carrito-acciones-comprar {
-    border: 0;
-    background-color: var(--clr-main);
-    padding: 1rem;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    color: var(--clr-white);
-    text-transform: uppercase;
-    cursor: pointer;
+.carrito-acciones-comprar:hover {
+    background-color: #444; /* Cambia el color para hover */
 }
+
 
 
 
