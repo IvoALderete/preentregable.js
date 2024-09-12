@@ -1,77 +1,105 @@
-const frutas = [
-    { nombre: "manzana", precio: 40 },
-    { nombre: "banana", precio: 80 },
-    { nombre: "ciruela", precio: 60 }
-];
+const productos = [
+    {
+        id: "monitor1",
+        titulo: "monitor1",
+        imagen: "./styles/img/Predator_X32_01.jpg",
+        categoria: {
+            nombre: "monitores",
+            id: "monitores"
+        },
+        precio: 500
+    },
 
-let eleccion =  parseInt(prompt("Elija que fruta desea llevar: \n 1- manzana $40 \n 2- banana $80 \n 3- ciruela $60 \n  4-salir"))
-let confirmar = false;
 
-function multiplicarmanzana () {
-    let cantidad = parseInt(prompt("ingrese la cantidad que desea llevar"))
-    let seleccionarfruta = frutas[eleccion -1 ]
-    let total = (seleccionarfruta.precio * cantidad)
-    alert("el Precio total de su compra es de " + total + " pesos")
-    confirmar =  confirm ("Desea llevar algo mas?");
-    if (confirmar) {
-        alert ("continue su compra")
+    {
+        id: "monitor2",
+        titulo: "monitor2",
+        imagen: "./styles/img/Asus.jpg",
+        categoria: {
+            nombre: "monitores",
+            id: "monitores"
+        },
+        precio: 500
+    },
+
+
+    {
+        id: "gabinete1",
+        titulo: "gabinete1",
+        imagen: "./styles/img/gabineteazul.jpeg",
+        categoria: {
+            nombre: "gabinetes",
+            id: "gabinetes"
+        },
+        precio: 500
+    },
+
+
+    {
+        id: "gabinete2",
+        titulo: "gabinete2",
+        imagen: "./styles/img/pcjs.webp",
+        categoria: {
+            nombre: "gabinetes",
+            id: "gabinetes"
+        },
+        precio: 500
     }
-    else {
-        alert ("Gracias por su compra!, que tenga buen dia.")
-    }
-    return (total);
+]
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Coloca todo tu código aquí
+});
+
+
+const contenedorProductos = document.querySelector("#contenedor-productos");
+const botonesCategorias = document.querySelectorAll(".boton-categoria");
+let botonesAgregar = document.querySelectorAll(".producto-agregar");
+
+function cargarProductos(productosElegidos) {
+
+    contenedorProductos.innerHTML = "";
+
+    productosElegidos.forEach(producto => {
+
+        const div = document.createElement("div");
+        div.classList.add("producto");
+        div.innerHTML = `
+        <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+        <div class="producto-detalles">
+            <h3 class="producto-titulo">${producto.titulo}</h3>
+            <p class="producto-precio">${producto.precio}</p>
+            <button class="producto-agregar" id="${producto.id}">Agregar</button>
+        </div>
+        `;
+
+
+    contenedorProductos.append(div);
+    })
+}
+cargarProductos(productos);
+
+function actualizarBotonesAgregar () {
+    botonesAgregar = document.querySelectorAll(".producto-agregar");
+
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener("click", agregarAlCarrito);
+    });
 }
 
 
-function multiplicarbanana () {
-    let cantidad = parseInt(prompt("ingrese la cantidad que desea llevar"))
-    let seleccionarfruta = frutas[eleccion -1 ]
-    let total = (seleccionarfruta.precio * cantidad)
-    alert("el Precio total de su compra es de " + total + " pesos")
-    confirmar =  confirm ("Desea llevar algo mas?");
-    if (confirmar) {
-        alert ("continue su compra")
+const productosEnCarrito  = [];
+
+function agregarAlCarrito (e) {
+    const idBoton = e.currentTarget.id;
+    const productoAgregado = productos.find(producto => producto.id === idBoton);
+    if(productosEnCarrito.some(producto => producto.id === idBoton)) {
+        const index = productosEnCarrito.findIndex (producto => producto.id === idBoton);
+        productosEnCarrito[index].cantidad++;
+    } else {
+        productoAgregado.cantidad = 1;
+        productosEnCarrito.push(productoAgregado);
     }
-    else {
-        alert ("Gracias por su compra!, que tenga buen dia.")
-    }
-    return (total);
 }
-
-
-function multiplicarciruela () {
-    let cantidad = parseInt(prompt("ingrese la cantidad que desea llevar"))
-    let seleccionarfruta = frutas[eleccion -1 ]
-    let total = (seleccionarfruta.precio * cantidad)
-    alert("el Precio total de su compra es de " + total + " pesos")
-    confirmar =  confirm ("Desea llevar algo mas?");
-    if (confirmar) {
-        alert ("continue su compra")
-    }
-    else {
-        alert ("Gracias por su compra!, que tenga buen dia.")
-    }
-    return (total);
-}
-
-
-while(eleccion) {
-    switch(eleccion)  {
-        case 1:
-            multiplicarmanzana()
-            break
-        case 2:
-            multiplicarbanana()
-            break
-        case 3:
-            multiplicarciruela()
-            break
-        default:
-            alert("Finalizando programa, gracias!!")
-            break
-    }
-
-    eleccion = parseInt(prompt("Elija que fruta desea llevar: \n 1- manzana \n 2- banana \n 3- ciruela \n  4-salir"))
-}
-
-
+console.log(productosEnCarrito)
