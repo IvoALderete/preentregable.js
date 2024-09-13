@@ -6,9 +6,9 @@ const contenedorCarritoProductos = document.querySelector("#carrito-productos");
 const contendorCarritoAcciones = document.querySelector("#carrito-acciones");
 const contenedorCarritoComprado = document.querySelector("#carrito-comprado");
 let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
-const botonVaciar = document.querySelector("#carrito-vaciar")
-const contenedorTotal = document.querySelector("#total")
-const botonComprar = document.querySelector("#carrito-comprar")
+const botonVaciar = document.querySelector("#carrito-acciones-vaciar");
+const contenedorTotal = document.querySelector("#total");
+const botonComprar = document.querySelector("#carrito-acciones-comprar");
 
 
 
@@ -54,12 +54,7 @@ function cargarProductosCarrito () {
     
             contenedorCarritoProductos.append(div)
     
-        } )
-    
-    
-        const div = document.createElement("div");
-        div.classList.add("carrito-producto");
-    
+        } );
     
     } else {
     
