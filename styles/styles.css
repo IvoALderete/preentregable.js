@@ -28,7 +28,7 @@ body {
 nav {
     z-index: 1000;
     background-color: rgb(0, 0, 0);
-    height: 300px;
+    height: 350px;
     min-height: 10px; /* Ajusta la altura mínima de la barra de navegación */
     position: fixed;
     top: 0;
@@ -39,9 +39,8 @@ nav {
 }
 
 .logo {
-        
-        width: 300px; 
-        display: block; 
+        width: 600px; 
+        height: 350px;
 }
 
 nav header .logo button a {
@@ -61,27 +60,34 @@ nav header h1 {
     position: absolute;
     display: inline-block;
     color: #ffffff;
-    font-size: 80px; 
+    font-size: 70px; 
     text-decoration: none; 
     padding: 10px;
-    top: 80px; 
-    right: 30px;
+    top: 120px; 
+    right: 120px;
 }
 
 .cart-icon:hover {
     color: #007bff;
 }
 
+
+.numerito {
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 4px;
+    border-radius: 7px;
+    margin-left: 30px;
+    
+}
+
 h1 {
     color: rgb(0, 0, 0);
     
 }
-h2 {
-    font-size: 70px !important;
-    padding-top: 400px;
-    height: 150px;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
+
+h3 {
+    font-size: 60px;
 }
 
 /*Estilos para Imagenes*/
@@ -95,7 +101,7 @@ h2 {
 }
 
 .producto {
-    margin-top: 80px;
+    margin-top: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -109,7 +115,7 @@ h2 {
 }
 
 .producto:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-50px); 
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -202,59 +208,166 @@ h2 {
 /*Carrito vacio*/
 
 .contenedor-carrito {
+    margin-top: 150px;
+    font-size: 100px;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 80px;
+    padding: 100px;
 }
 
 .carrito-vacio,
 .carrito-comprado {
+    padding: 200px;
     color: var(--clr-main);
+    font-size: 80px;
+    text-shadow: 
+        -1px -1px 0 #7a11ca,  /* Sombra hacia la esquina superior izquierda */
+        1px -1px 0 #7a11ca,   /* Sombra hacia la esquina superior derecha */
+        -1px 1px 0 #7a11ca,   /* Sombra hacia la esquina inferior izquierda */
+        1px 1px 0 #7a11ca;    /* Sombra hacia la esquina inferior derecha */
+    font-family: "Protest Guerrilla", sans-serif;
 }
 
 .carrito-productos {
     display: flex;
     flex-direction: column;
+    font-size: 60px;
     gap: 1rem;
 }
 
 .carrito-producto {
+    font-size: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--clr-gray);
+    background-color: rgb(200, 195, 195);
     color: var(--clr-main);
     padding: 1rem; /* Reduce el padding si es muy grande */
-    border-radius: 0.5rem; /* Ajusta según tu diseño */
+    border-radius: 200px; /* Ajusta según tu diseño */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añadir sombra para mejor visibilidad */
+    
+}
+
+.carrito-producto small {
+    font-size: 50px;
+}
+
+.carrito-producto h3 {
+    font-size: 80px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.carrito-producto-eliminar {
+    height: 150px;
+    border-radius: 500px;
+    background-color: transparent;
+    border: 0;
+}
+
+.carrito-producto-eliminar:hover {
+    background-color: gray;
+    color: white;
 }
 
 .carrito-producto-imagen {
-    width: 100px; /* Ajusta según la imagen */
-    border-radius: 0.5rem;
+    width: 450px; /* Ajusta según la imagen */
+    border-radius: 200px;
     object-fit: cover; /* Para mantener proporción */
 }
 
-.carrito-accione-total {
-    padding: 1rem;
-    border-radius: 0.5rem;
+.carrito-acciones {
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
-.carrito-acciones-comprar:hover {
-    background-color: #444; /* Cambia el color para hover */
+.carrito-acciones-total {
+    display: flex;
+    font-size: 60px;
+    background-color: rgb(201, 188, 188);
+    padding: 1rem;
+    border-radius: 15rem;
+    text-transform: uppercase;
+    margin-right: 70px;
+    
 }
 
+.carrito-acciones-vaciar {
+    background-color: #fff; /* Color llamativo, típico de botones de comprar */
+    color: #7a11ca; /* Texto blanco para contraste */
+    border: none; /* Sin borde para un look limpio */
+    padding: 20px 24px; /* Buen espaciado interno */
+    border-radius: 60px; /* Bordes redondeados */
+    font-size: 60px; /* Fuente más grande y legible */
+    font-weight: bold; /* Fuente en negrita para resaltar */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    margin-left: 120px; /* Empuja el botón hacia la derecha */
+}
 
+.carrito-acciones-vaciar:hover {
+    background-color: #330557; /* Cambia a un tono más oscuro en hover */
+    color: white;
+    transform: translateY(-2px); /* Efecto de elevar al pasar el mouse */
+}
 
+.carrito-acciones-derecha{
+    display: flex;
 
+}
+
+.carrito-acciones-comprar {
+    background-color: #7a11ca; /* Color llamativo, típico de botones de comprar */
+    color: #fff; /* Texto blanco para contraste */
+    border: none; /* Sin borde para un look limpio */
+    padding: 20px 24px; /* Buen espaciado interno */
+    border-radius: 60px; /* Bordes redondeados */
+    font-size: 60px; /* Fuente más grande y legible */
+    font-weight: bold; /* Fuente en negrita para resaltar */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    margin-right: 120px;
+}
+
+.carrito-acciones-comprar:hover {
+    background-color: #330557; /* Cambia a un tono más oscuro en hover */
+    color: rgb(255, 255, 255);
+    transform: translateY(-2px); /* Efecto de elevar al pasar el mouse */
+}
+
+.carrito-producto-titulo {
+    font-size: 85px;
+}
+
+.carrito-total {
+    font-size: 100px;
+}
+
+.titulo-principal {
+    font-size: 150px;
+    padding-top: 400px;
+    height: 150px;
+    text-shadow: 
+        -1px -1px 0 #7a11ca,  /* Sombra hacia la esquina superior izquierda */
+        1px -1px 0 #7a11ca,   /* Sombra hacia la esquina superior derecha */
+        -1px 1px 0 #7a11ca,   /* Sombra hacia la esquina inferior izquierda */
+        1px 1px 0 #7a11ca;    /* Sombra hacia la esquina inferior derecha */
+    text-align: center;
+    font-family: "Protest Guerrilla", sans-serif;
+}
+
+.disabled {
+    display: none;
+}
 
 /* Estilos para footer*/
 footer {
     background-color: rgb(0, 0, 0);
-    margin-top: 500px;
+    margin-top: 1400px;
     width: 100%;
     padding: auto;
     font-size: 60px;
@@ -283,5 +396,17 @@ footer p {
 .poppins-thin {
     font-family: "Poppins", sans-serif;
     font-weight: 100;
+    font-style: normal;
+}
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.protest-guerrilla-regular {
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
     font-style: normal;
 }

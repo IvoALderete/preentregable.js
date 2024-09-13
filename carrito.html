@@ -7,10 +7,9 @@
     <!--Fuentes-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Protest+Guerrilla&display=swap" rel="stylesheet">
     <!--Custom Css-->
     <link rel="stylesheet" href="./styles/styles.css" />
     </head>
@@ -26,12 +25,11 @@
             />
             </a>
             <ul>
-            <li>
-                <a href="./carrito.html" class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <!-- Ícono de carrito -->
-                </a>
-            </li>
+                <li>
+                    <a class="cart-icon" href="./carrito.html">
+                        <i class="fas fa-shopping-cart"></i><span id="numerito" class="numerito">0</span> <!-- Ícono de carrito -->
+                    </a>
+                </li>
             </ul>
         </header>
         </nav>
@@ -42,47 +40,108 @@
         </div>
 
         <main>
-        <section id="carrito" class="carrito-container">
+        <section id="carrito" >
             <h2 class="titulo-principal">Carrito</h2>
             <div class="contenedor-carrito">
                 <!-- Mensaje de carrito vacío -->
-                <p class="carrito-vacio">Tu carrito está vacío</p>
+                <p id="carrito-vacio" class="carrito-vacio">Tu carrito está vacío</p>
             
                 <!-- Productos en el carrito -->
-                <div class="carrito-productos">
-                    <div class="carrito-producto">
-                        <img src="./styles/img/Predator_X32_01.jpg" alt="Producto" class="carrito-producto-imagen">
-                        <div class="carrito-producto-detalles">
-                            <h3 class="carrito-producto-titulo">Nombre del Producto</h3>
-                            <small>$500</small>
-                        </div>
-                        <button class="svg">Eliminar</button>
-                    </div>
-                    <!-- Más productos aquí -->
-                </div>
-            
+            <div id="carrito-productos" class="carrito-productos disabled">
+                    <!-- Esto se completa con JS-->
+            <div>
+                <!-- Más productos aquí -->
+            </div>
+
                 <!-- Acciones del carrito -->
-                <div class="carrito-acciones">
-                    <button class="carrito-acciones-vaciar">Vaciar Carrito</button>
+                <div id="carrito-acciones" class="carrito-acciones disabled">
+                    <div class="carrito-acciones-izquierda">
+                        <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Vaciar Carrito</button>
+                    </div>
                     <div class="carrito-acciones-derecha">
-                        <div class="carrito-accione-total">
-                            <span>Total:</span>
-                            <span>$1500</span>
+                        <div class="carrito-acciones-total">
+                            <p>Total:</p>
+                            <p id="total">$1500</p>
                         </div>
-                        <button class="carrito-acciones-comprar">Comprar</button>
+                        <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar</button>
                     </div>
                 </div>
             </div>
 
-            <div class="carrito-total">
-            <p>Total: <span id="carrito-total">0</span> $</p>
-            </div>
+            <p id="carrito-comprado" class="carrito-comprado disabled">Muchas Gracias por tu Compra. <svg xmlns="http://www.w3.org/2000/svg" width="100" height="80" fill="currentColor" class="bi bi-emoji-frown" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                <path d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5"/>
+                </svg></p> 
+
         </section>
         </main>
     </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script defer src="/java-script/carrito.js"></script>
     <script defer src="/java-script/main.js"></script>
     </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <link
     rel="stylesheet"

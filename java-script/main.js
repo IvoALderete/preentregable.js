@@ -1,4 +1,4 @@
-const productos = [
+const productosArray = [
     {
         id: "monitor1",
         titulo: "monitor1",
@@ -45,7 +45,7 @@ const productos = [
         },
         precio: 500
     }
-]
+];
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -72,13 +72,16 @@ function cargarProductos(productosElegidos) {
             <p class="producto-precio">${producto.precio}</p>
             <button class="producto-agregar" id="${producto.id}">Agregar</button>
         </div>
-        `;
+    `;
 
 
     contenedorProductos.append(div);
     })
+
+    actualizarBotonesAgregar();
+
 }
-cargarProductos(productos);
+cargarProductos(productosArray);
 
 function actualizarBotonesAgregar () {
     botonesAgregar = document.querySelectorAll(".producto-agregar");
@@ -88,12 +91,23 @@ function actualizarBotonesAgregar () {
     });
 }
 
+let productosEnCarrito;
 
-const productosEnCarrito  = [];
+let productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
+
+
+if (productosEnCarritoLS) {
+    productosEnCarrito = JSON.parse(productosEnCarritoLS);
+    actualizarNumerito();
+} else {
+    productosEnCarrito = [];
+}
+
 
 function agregarAlCarrito (e) {
     const idBoton = e.currentTarget.id;
-    const productoAgregado = productos.find(producto => producto.id === idBoton);
+    const productoAgregado = productosArray.find(producto => producto.id === idBoton);
+
     if(productosEnCarrito.some(producto => producto.id === idBoton)) {
         const index = productosEnCarrito.findIndex (producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
@@ -101,5 +115,13 @@ function agregarAlCarrito (e) {
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
     }
+
+    actualizarNumerito();
+
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
-console.log(productosEnCarrito)
+
+function actualizarNumerito () {
+    let nuevoNumerito = productosEnCarrito.reduce((acc,producto) => acc + producto.cantidad, 0);
+    numerito.innerText = nuevoNumerito;
+}
