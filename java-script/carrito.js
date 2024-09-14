@@ -10,6 +10,8 @@ const botonVaciar = document.querySelector("#carrito-acciones-vaciar");
 const contenedorTotal = document.querySelector("#total");
 const botonComprar = document.querySelector("#carrito-acciones-comprar");
 
+
+
 function cargarProductosCarrito () {
     if (productosEnCarrito && productosEnCarrito.length > 0) {
 
@@ -20,7 +22,7 @@ function cargarProductosCarrito () {
     
         contenedorCarritoProductos.innerHTML = "";
     
-        productosEnCarrito.forEach (producto => {
+        productosEnCarrito.forEach (producto =>{
     
             const div = document.createElement("div");
             div.classList.add("carrito-producto");
@@ -49,11 +51,10 @@ function cargarProductosCarrito () {
                             </button>
     
             `;
-            contenedorCarritoProductos.append(div);
-        })
     
-        actualizarBotonesEliminar ();
-        actualizarTotal();
+            contenedorCarritoProductos.append(div)
+    
+        } );
     
     } else {
     
@@ -63,10 +64,11 @@ function cargarProductosCarrito () {
         contenedorCarritoComprado.classList.add("disabled");
     
     }
+
+    actualizarBotonesEliminar ();
 }
 
-cargarProductosCarrito();
-
+cargarProductosCarrito ();
 
 function actualizarBotonesEliminar () {
     botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
@@ -95,6 +97,11 @@ function vaciarCarrito() {
 
 }
 
+function actualizarTotal () {
+    const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
+    totalCalculado.innerText = `$${totalCalculado}`;
+}
+
 botonComprar.addEventListener("click", comprarCarrito);
 
 function comprarCarrito() {
@@ -107,9 +114,4 @@ function comprarCarrito() {
         contenedorCarritoComprado.classList.remove("disabled");
     
 
-}
-
-function actualizarTotal () {
-    const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
-    contenedorTotal.innerText = `$${totalCalculado}`;
 }
