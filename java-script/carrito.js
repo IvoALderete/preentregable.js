@@ -61,7 +61,7 @@ function cargarProductosCarrito () {
     
         contenedorCarritoVacio.classList.remove("disabled");
         contenedorCarritoProductos.classList.add("disabled");
-        contendorCarritoAcciones.classList.add("disabled");
+        contendorCarritoAcciones.classList.remove("disabled");
         contenedorCarritoComprado.classList.add("disabled");
     
     }

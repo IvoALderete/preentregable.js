@@ -6,7 +6,7 @@
 }
 
 :root {
-    --clr-main: #333; /* Ajusta el color según tu diseño */
+    --clr-main: #333; 
     --clr-gray: #f0f0f0;
     --clr-red: #ff0000;
     --clr-white: #fff;
@@ -17,8 +17,6 @@
 body {
     height: 50vh;
     background-image: url('./img/fondodeeccomers.jpg');
-    
-    /* Opcional: Ajustes adicionales para la imagen de fondo */
     background-size: cover; 
     background-repeat: no-repeat; 
     background-position: center; 
@@ -29,7 +27,7 @@ nav {
     z-index: 1000;
     background-color: rgb(0, 0, 0);
     height: 350px;
-    min-height: 10px; /* Ajusta la altura mínima de la barra de navegación */
+    min-height: 10px; 
     position: fixed;
     top: 0;
     left: 0;
@@ -222,10 +220,10 @@ h3 {
     color: var(--clr-main);
     font-size: 80px;
     text-shadow: 
-        -1px -1px 0 #7a11ca,  /* Sombra hacia la esquina superior izquierda */
-        1px -1px 0 #7a11ca,   /* Sombra hacia la esquina superior derecha */
-        -1px 1px 0 #7a11ca,   /* Sombra hacia la esquina inferior izquierda */
-        1px 1px 0 #7a11ca;    /* Sombra hacia la esquina inferior derecha */
+        -1px -1px 0 #7a11ca,  
+        1px -1px 0 #7a11ca,   
+        -1px 1px 0 #7a11ca,   
+        1px 1px 0 #7a11ca;    
     font-family: "Protest Guerrilla", sans-serif;
 }
 
@@ -243,9 +241,9 @@ h3 {
     align-items: center;
     background-color: rgb(200, 195, 195);
     color: var(--clr-main);
-    padding: 1rem; /* Reduce el padding si es muy grande */
-    border-radius: 200px; /* Ajusta según tu diseño */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Añadir sombra para mejor visibilidad */
+    padding: 1rem; 
+    border-radius: 200px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     
 }
 
@@ -271,9 +269,13 @@ h3 {
 }
 
 .carrito-producto-imagen {
-    width: 450px; /* Ajusta según la imagen */
+    width: 450px; 
     border-radius: 200px;
-    object-fit: cover; /* Para mantener proporción */
+    object-fit: cover; 
+}
+
+.disabled {
+    display: none;
 }
 
 .carrito-acciones {
@@ -293,24 +295,24 @@ h3 {
 }
 
 .carrito-acciones-vaciar {
-    background-color: #fff; /* Color llamativo, típico de botones de comprar */
-    color: #7a11ca; /* Texto blanco para contraste */
-    border: none; /* Sin borde para un look limpio */
-    padding: 20px 24px; /* Buen espaciado interno */
-    border-radius: 60px; /* Bordes redondeados */
-    font-size: 60px; /* Fuente más grande y legible */
-    font-weight: bold; /* Fuente en negrita para resaltar */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
-    margin-left: 120px; /* Empuja el botón hacia la derecha */
+    background-color: #fff; 
+    color: #7a11ca; 
+    border: none; 
+    padding: 20px 24px; 
+    border-radius: 60px; 
+    font-size: 60px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+    margin-left: 120px; 
 }
 
 .carrito-acciones-vaciar:hover {
-    background-color: #330557; /* Cambia a un tono más oscuro en hover */
+    background-color: #330557; 
     color: white;
-    transform: translateY(-2px); /* Efecto de elevar al pasar el mouse */
+    transform: translateY(-2px); 
 }
 
 .carrito-acciones-derecha{
@@ -319,24 +321,24 @@ h3 {
 }
 
 .carrito-acciones-comprar {
-    background-color: #7a11ca; /* Color llamativo, típico de botones de comprar */
-    color: #fff; /* Texto blanco para contraste */
-    border: none; /* Sin borde para un look limpio */
-    padding: 20px 24px; /* Buen espaciado interno */
-    border-radius: 60px; /* Bordes redondeados */
-    font-size: 60px; /* Fuente más grande y legible */
-    font-weight: bold; /* Fuente en negrita para resaltar */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    background-color: #7a11ca;
+    color: #fff; 
+    border: none; 
+    padding: 20px 24px; 
+    border-radius: 60px; 
+    font-size: 60px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
     margin-right: 120px;
 }
 
 .carrito-acciones-comprar:hover {
-    background-color: #330557; /* Cambia a un tono más oscuro en hover */
+    background-color: #330557; 
     color: rgb(255, 255, 255);
-    transform: translateY(-2px); /* Efecto de elevar al pasar el mouse */
+    transform: translateY(-2px);
 }
 
 .carrito-producto-titulo {
@@ -352,17 +354,14 @@ h3 {
     padding-top: 400px;
     height: 150px;
     text-shadow: 
-        -1px -1px 0 #7a11ca,  /* Sombra hacia la esquina superior izquierda */
-        1px -1px 0 #7a11ca,   /* Sombra hacia la esquina superior derecha */
-        -1px 1px 0 #7a11ca,   /* Sombra hacia la esquina inferior izquierda */
-        1px 1px 0 #7a11ca;    /* Sombra hacia la esquina inferior derecha */
+        -1px -1px 0 #7a11ca,  
+        1px -1px 0 #7a11ca,   
+        -1px 1px 0 #7a11ca,   
+        1px 1px 0 #7a11ca;    
     text-align: center;
     font-family: "Protest Guerrilla", sans-serif;
 }
 
-.disabled {
-    display: none;
-}
 
 /* Estilos para footer*/
 footer {

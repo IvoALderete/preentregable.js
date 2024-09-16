@@ -29,16 +29,14 @@ const productosArray = [
     }
 ];
 
-
-let botonesAgregar = document.querySelectorAll(".producto-agregar");
+const contenedorProductos = document.querySelector("#contenedor-productos");
 const tituloPrincipal = document.querySelector("#titulo-principal");
+let botonesAgregar = document.querySelectorAll(".producto-agregar");
 const numerito = document.querySelector("#numerito");
 
 function cargarProductos(productosElegidos) {
-    const contenedorProductos = document.querySelector("#contenedor-productos");
-
     if (contenedorProductos) {
-        contenedorProductos.innerHTML = ""; // Limpiar el contenedor
+        contenedorProductos.innerHTML = "";
 
         productosElegidos.forEach(producto => {
             const div = document.createElement("div");
@@ -56,9 +54,7 @@ function cargarProductos(productosElegidos) {
         });
 
         actualizarBotonesAgregar();
-    } else {
-        console.error("El elemento #contenedor-productos no se encuentra en el DOM.");
-    }
+    } 
 }
 
 window.onload = function() {
