@@ -2,7 +2,7 @@ let productosEnCarrito = localStorage.getItem("productos-en-carrito");
 productosEnCarrito = JSON.parse(productosEnCarrito);
 
 const contenedorCarritoVacio = document.querySelector("#carrito-vacio");
-const contenedorCarritoProductos = document.querySelector("#carrito-productos");
+const contenedorCarritoProductos = document.querySelector('#carrito-productos');
 const contendorCarritoAcciones = document.querySelector("#carrito-acciones");
 const contenedorCarritoComprado = document.querySelector("#carrito-comprado");
 let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
@@ -56,17 +56,19 @@ function cargarProductosCarrito () {
             contenedorCarritoProductos.append(div)
     
         } );
+
+        actualizarBotonesEliminar ();
+        actualizarTotal();
     
     } else {
     
         contenedorCarritoVacio.classList.remove("disabled");
         contenedorCarritoProductos.classList.add("disabled");
-        contendorCarritoAcciones.classList.remove("disabled");
+        contendorCarritoAcciones.classList.add("disabled");
         contenedorCarritoComprado.classList.add("disabled");
     
     }
 
-    actualizarBotonesEliminar ();
 }
 
 cargarProductosCarrito ();
@@ -100,7 +102,7 @@ function vaciarCarrito() {
 
 function actualizarTotal () {
     const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
-    total.innerText = `$${totalCalculado}`;
+    actualizarTotal.innerText = `$${totalCalculado}`;
 }
 
 botonComprar.addEventListener("click", comprarCarrito);
