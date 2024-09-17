@@ -80,6 +80,10 @@ function agregarAlCarrito(e) {
     const idBoton = e.currentTarget.id;
     const productoAgregado = productosArray.find((producto) => producto.id === idBoton);
 
+    if (!productosEnCarrito) {
+        productosEnCarrito = [];
+    }
+
     if (productosEnCarrito.some((producto) => producto.id === idBoton)) {
         const index = productosEnCarrito.findIndex((producto) => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
