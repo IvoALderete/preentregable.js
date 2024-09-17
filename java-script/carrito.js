@@ -15,10 +15,6 @@ const contenedorCarrito = document.querySelector("#contenedor-carrito");
 
 function cargarProductosCarrito () {
     if (productosEnCarrito && productosEnCarrito.length > 0) {
-        const contenedorCarritoVacio = document.querySelector("#carrito-vacio");
-        const contenedorCarritoProductos = document.querySelector('#carrito-productos');
-        const contendorCarritoAcciones = document.querySelector("#carrito-acciones");
-        const contenedorCarritoComprado = document.querySelector("#carrito-comprado");
 
         if (contenedorCarritoVacio) {
             contenedorCarritoVacio.classList.add("disabled");
