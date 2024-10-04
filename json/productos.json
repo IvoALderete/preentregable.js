@@ -1,0 +1,42 @@
+[
+    {
+        "id": "monitor1",
+        "titulo": "monitor1",
+        "imagen": "./styles/img/Predator_X32_01.jpg",
+        "categoria": {
+            "nombre": "monitores",
+            "id": "monitores"
+        },
+        "precio": 500
+    },
+    {
+        "id": "monitor2",
+        "titulo": "monitor2",
+        "imagen": "./styles/img/Asus.jpg",
+        "categoria": {
+            "nombre": "monitores",
+            "id": "monitores"
+        },
+        "precio": 500
+    },
+    {
+        "id": "gabinete1",
+        "titulo": "gabinete1",
+        "imagen": "./styles/img/gabineteazul.jpeg",
+        "categoria": {
+            "nombre": "gabinetes",
+            "id": "gabinetes"
+        },
+        "precio": 500
+    },
+    {
+        "id": "gabinete2",
+        "titulo": "gabinete2",
+        "imagen": "./styles/img/pcjs.webp",
+        "categoria": {
+            "nombre": "gabinetes",
+            "id": "gabinetes"
+        },
+        "precio": 500
+    }
+]

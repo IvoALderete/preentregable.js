@@ -11,6 +11,7 @@ const contenedorTotal = document.querySelector("#total");
 const botonComprar = document.querySelector("#carrito-acciones-comprar");
 const contenedorCarrito = document.querySelector("#contenedor-carrito");
 const contenedorTotalText = document.querySelector("#total-text");
+const comprarBtn = document.getElementById('carrito-acciones-comprar');
 
 
 
@@ -154,4 +155,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     cargarProductosCarrito();
+});
+
+comprarBtn.addEventListener('click', () => {
+    window.location.href = './datosdecomprador.html';
 });

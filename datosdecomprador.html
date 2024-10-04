@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos de Compra</title>
-    <link rel="stylesheet" href="./styles/styles.css"> <!-- Enlace a tu archivo CSS si tienes uno -->
+    <link rel="stylesheet" href="./styles/styles.css"> 
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,63 +51,109 @@
             background-color: #1714d1;
         }
         
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(204, 202, 202);
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border-radius: 10px;
+            font-size: 80px;
+        }
+
+        #popup button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #popup button:hover {
+            background-color: #1714d1;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
-        <a href="./index.html">
-        <img class="logo" src="./styles/img/AlienPc (7).png" alt="logo de la empresa AlienPc">
-        </a>
-        <ul>
-            <li>
-                <a class="cart-icon" href="./carrito.html">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="numerito" class="numerito">0</span> <!-- Ícono de carrito -->
-                </a>
-            </li>
-        </ul>
+            <a href="./index.html">
+                <img class="logo" src="./styles/img/AlienPc (7).png" alt="logo de la empresa AlienPc">
+            </a>
+            <ul>
+                <li>
+                    <a class="cart-icon" href="./carrito.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="numerito" class="numerito">0</span> <!-- Ícono de carrito -->
+                    </a>
+                </li>
+            </ul>
         </nav>
     </header>
 
-<div class="container">
-    <h1>Formulario de Compra</h1>
-    <form id="form-compra">
-        <div class="form-group">
-            <label for="nombre">Nombre Completo:</label>
-            <input type="text" id="nombre" name="nombre" required>
-        </div>
-        <div class="form-group">
-            <label for="correo">Correo Electrónico:</label>
-            <input type="email" id="correo" name="correo" required>
-        </div>
-        <div class="form-group">
-            <label for="direccion">Dirección de Envío:</label>
-            <input type="text" id="direccion" name="direccion" required>
-        </div>
-        <div class="form-group">
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" required>
-        </div>
-        <div class="form-group">
-            <label for="metodo-pago">Método de Pago:</label>
-            <select id="metodo-pago" name="metodo-pago" required>
-                <option value="">Seleccione un método</option>
-                <option value="tarjeta-credito">Tarjeta de Crédito</option>
-                <option value="tarjeta-debito">Tarjeta de Débito</option>
-                <option value="paypal">PayPal</option>
-                <option value="transferencia-bancaria">Transferencia Bancaria</option>
-            </select>
-        </div>
-        <button type="submit">Comprar</button>
-    </form>
-</div>
+    <div class="container">
+        <h1>Formulario de Compra</h1>
+        <form id="form-compra">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección de Envío:</label>
+                <input type="text" id="direccion" name="direccion" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div class="form-group">
+                <label for="metodo-pago">Método de Pago:</label>
+                <select id="metodo-pago" name="metodo-pago" required>
+                    <option value="">Seleccione un método</option>
+                    <option value="tarjeta-credito">Tarjeta de Crédito</option>
+                    <option value="tarjeta-debito">Tarjeta de Débito</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="transferencia-bancaria">Transferencia Bancaria</option>
+                </select>
+            </div>
+            <button type="submit">Comprar</button>
+        </form>
+    </div>
 
+    <!-- Popup de agradecimiento -->
+    <div id="popup">
+        <p>¡Gracias por tu compra! Tu pedido ha sido procesado correctamente.</p>
+        <button id="closePopup">Cerrar</button>
+    </div>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <script>
+        document.getElementById('form-compra').addEventListener('submit', function(event) {
+            event.preventDefault(); 
 
+            if (this.checkValidity()) {
+                document.getElementById('popup').style.display = 'block';
 
+                this.reset();
+            } else {
+                this.reportValidity();
+            }
+        });
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        document.getElementById('closePopup').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
