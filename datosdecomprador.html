@@ -17,6 +17,7 @@
             padding: 30px;
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 100px;
         }
         h1 {
             text-align: center;
@@ -28,6 +29,7 @@
         label {
             display: block;
             margin-bottom: 5px;
+            font-size: 80px;
         }
         input, select {
             width: 100%;
@@ -35,7 +37,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
-            font-size: 40px;
+            font-size: 60px;
         }
         button {
             background-color: #007bff;
@@ -50,35 +52,23 @@
         button:hover {
             background-color: #1714d1;
         }
-        
-        #popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgb(204, 202, 202);
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            border-radius: 10px;
-            font-size: 80px;
-        }
 
-        #popup button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 50px;
-            cursor: pointer;
-            margin-top: 20px;
+        .swal2-popup {
+            font-size: 40px;
+            padding: 50px;
         }
-
-        #popup button:hover {
-            background-color: #1714d1;
+        .swal2-title {
+            font-size: 150px;
+        }
+        .swal2-content {
+            font-size: 40px;
+        }
+        .swal2-actions .swal2-confirm, .swal2-actions .swal2-cancel {
+            font-size: 60px;
+            padding: 20px 40px;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
@@ -90,7 +80,7 @@
                 <li>
                     <a class="cart-icon" href="./carrito.html">
                         <i class="fas fa-shopping-cart"></i>
-                        <span id="numerito" class="numerito">0</span> <!-- Ícono de carrito -->
+                        <span id="numerito" class="numerito">0</span>
                     </a>
                 </li>
             </ul>
@@ -130,30 +120,46 @@
         </form>
     </div>
 
-    <!-- agradecimiento -->
-    <div id="popup">
-        <p>¡Gracias por tu compra! Tu pedido ha sido procesado correctamente.</p>
-        <button id="closePopup">Cerrar</button>
-    </div>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <script>
-        document.getElementById('form-compra').addEventListener('submit', function(event) {
-            event.preventDefault(); 
+        document.getElementById("form-compra").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-            if (this.checkValidity()) {
-                document.getElementById('popup').style.display = 'block';
-
-                this.reset();
-            } else {
-                this.reportValidity();
-            }
-        });
-
-        document.getElementById('closePopup').addEventListener('click', function() {
-            document.getElementById('popup').style.display = 'none';
+            Swal.fire({
+                title: "¿Estás seguro?",
+                text: "Confirma que quieres realizar esta compra.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sí, confirmar compra",
+                cancelButtonText: "Cancelar",
+                customClass: {
+                    popup: 'swal2-popup',
+                    title: 'swal2-title',
+                    content: 'swal2-content',
+                    confirmButton: 'swal2-confirm',
+                    cancelButton: 'swal2-cancel'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "¡Compra Confirmada!",
+                        text: "Tu compra ha sido procesada exitosamente.",
+                        icon: "success",
+                        customClass: {
+                            popup: 'swal2-popup',
+                            title: 'swal2-title',
+                            content: 'swal2-content',
+                            confirmButton: 'swal2-confirm'
+                        }
+                    }).then(() => {
+                        document.getElementById("form-compra").submit();
+                    });
+                }
+            });
         });
     </script>
 </body>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </html>
