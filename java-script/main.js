@@ -4,12 +4,15 @@ const numerito = document.querySelector("#numerito");
 
 let productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito")) || [];
 
-fetch('./json/productos.json')
-    .then(response => response.json())
-    .then(productos => {
+async function cargarProductosDesdeJson() {
+    try {
+        const response = await fetch('./json/productos.json');
+        const productos = await response.json();
         cargarProductos(productos);
-    })
-    .catch(error => console.error('Error al cargar los productos:', error));
+    } catch (error) {
+        console.error('Error al cargar los productos:', error);
+    }
+}
 
 function cargarProductos(productosElegidos) {
     if (contenedorProductos) {
@@ -30,7 +33,7 @@ function cargarProductos(productosElegidos) {
             contenedorProductos.append(div);
         });
 
-        actualizarBotonesAgregar(productosElegidos); 
+        actualizarBotonesAgregar(productosElegidos);
     }
 }
 
@@ -38,7 +41,7 @@ function actualizarBotonesAgregar(productos) {
     botonesAgregar = document.querySelectorAll(".producto-agregar");
 
     botonesAgregar.forEach(boton => {
-        boton.addEventListener("click", (e) => agregarAlCarrito(e, productos)); 
+        boton.addEventListener("click", (e) => agregarAlCarrito(e, productos));
     });
 }
 
@@ -51,13 +54,12 @@ function agregarAlCarrito(e, productos) {
         productosEnCarrito = [];
     }
 
-    
     const productoEnCarrito = productosEnCarrito.find(producto => producto.id === idBoton);
     
     if (productoEnCarrito) {
         productoEnCarrito.cantidad++; 
     } else {
-        productoAgregado.cantidad = 1;  
+        productoAgregado.cantidad = 1; 
         productosEnCarrito.push(productoAgregado);
     }
 
@@ -75,3 +77,5 @@ function actualizarNumerito() {
 }
 
 actualizarNumerito();
+
+cargarProductosDesdeJson();

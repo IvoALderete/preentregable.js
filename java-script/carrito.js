@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function cargarProductosCarrito () {
         if (!contenedorCarritoProductos) {
             console.error("El contenedor de productos no se encuentra en el DOM.");
-            return; // Salir si no existe el contenedor
+            return;
         }
 
         if (productosEnCarrito.length > 0) {
